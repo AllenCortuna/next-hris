@@ -9,16 +9,18 @@ export const metadata = {
 };
 const font = Martian_Mono ({ subsets: ["latin"], weight: ["200","400","500","600", "700"] });
 
+const RootLayout = ({ children }) => {
 
-export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${font.className}`}>
-      <Navbar/>
+      <Navbar />
         <main>
-        {children}
+          {children}
         </main>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

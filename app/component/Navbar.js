@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import { BsBarChartFill } from "react-icons/bs";
 import { FaUserAlt } from "react-icons/fa";
 import { MdTry } from "react-icons/md";
@@ -14,6 +14,11 @@ import { LuFingerprint } from "react-icons/lu";
 
 const Navbar = () => {
   const [isMinimized, setIsMinimized] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname === "/login") {
+    return null;
+  }
 
   const toggleNavbar = () => {
     setIsMinimized(!isMinimized);
@@ -34,7 +39,7 @@ const Navbar = () => {
           <LuFingerprint className="text-2xl" /> {!isMinimized && "HRIS"}
         </button>
         {/* nasa globals.css ang classname ng Link */}
-        <Link href={"/dashboard"} className="navlink">
+        <Link href={"/"} className="navlink">
           <BsBarChartFill className="text-xl" /> {!isMinimized && "Dashboard"}
         </Link>
         <Link href={"/employee"} className="navlink">
@@ -52,10 +57,10 @@ const Navbar = () => {
         <Link href={"/history"} className="navlink">
           <RiFolderHistoryFill className="text-xl" /> {!isMinimized && "History"}
         </Link>
-        <Link href={"/history"} className="navlink">
+        <Link href={"/account"} className="navlink">
           <FaUserCircle className="text-xl" /> {!isMinimized && "Account"}
         </Link>
-        <Link href={"/history"} className="navlink">
+        <Link href={"/logout"} className="navlink">
           <FaSignOutAlt className="text-xl" /> {!isMinimized && "Logout"}
         </Link>
       </nav>
