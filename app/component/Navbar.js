@@ -10,6 +10,7 @@ import { FaBuilding } from "react-icons/fa6";
 import { RiFolderHistoryFill } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
+import { LuFingerprint } from "react-icons/lu";
 
 const Navbar = () => {
   const [isMinimized, setIsMinimized] = useState(false);
@@ -21,16 +22,16 @@ const Navbar = () => {
   return (
     <div
       className={`flex ${
-        isMinimized ? "w-20 justify-center" : "w-56"
-      } h-screen bg-zinc-200 transition-width duration-300`}
+        isMinimized ? "w-20" : "w-56"
+      } h-screen bg-zinc-200 transition-width duration-300 justify-start items-start`}
     >
-      <nav className="flex flex-col items-start p-5 gap-2">
+      <nav className="flex flex-col items-start justify-start p-5 gap-2 mx-auto">
         <button
           onClick={toggleNavbar}
           data-tip="toggle width"
-          className={`text-lg font-[600] flex mb-5 tooltip tooltip-right`}
+          className={`text-lg font-[600] flex mb-5 tooltip text-white tooltip-right m-auto p-2 rounded-md gap-2 bg-neutral`}
         >
-          <b className="text-orange-500 my-auto">HRIS</b>
+          <LuFingerprint className="text-2xl" /> {!isMinimized && "HRIS"}
         </button>
         {/* nasa globals.css ang classname ng Link */}
         <Link href={"/dashboard"} className="navlink">
